@@ -5,7 +5,7 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib
 {
     public class DataService : ISprint5Task0V3
     {
-        public string SaveToFileTextData(int x)
+        public double Calculate(int x)
         {
             throw new NotImplementedException();
         }
@@ -37,6 +37,7 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib
 
 
             return filePath;
+
         }
     }
 }

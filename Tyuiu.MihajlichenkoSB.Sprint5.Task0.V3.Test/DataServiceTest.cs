@@ -5,9 +5,8 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Test
     public sealed class DataServiceTest
     {
         [TestMethod]
-        public void TestMethod1()
-        {
-                    public override bool Equals(object obj)
+
+        public override bool Equals(object obj)
         {
             return base.Equals(obj);
         }
