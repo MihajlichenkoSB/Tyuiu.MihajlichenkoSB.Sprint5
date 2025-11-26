@@ -13,14 +13,16 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib
 
             y = Math.Round(y, 3, MidpointRounding.AwayFromZero);
 
-            string resultStr = y.ToString("0.000", CultureInfo.InvariantCulture);
+            string resultStr = y.ToString(CultureInfo.InvariantCulture);
 
             string fileName = "OutPutFileTask0.txt";
+
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
             File.WriteAllText(filePath, resultStr);
 
             return filePath;
         }
+
     }
 }
