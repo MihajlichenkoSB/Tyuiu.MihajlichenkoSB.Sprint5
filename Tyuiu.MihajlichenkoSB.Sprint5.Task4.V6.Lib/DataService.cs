@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task4.V6.Lib
 {
-    public class DataService
+    public class DataService : ISprint5Tassk4V6
     {
         public double LoadFromDataFile(string path)
         {
