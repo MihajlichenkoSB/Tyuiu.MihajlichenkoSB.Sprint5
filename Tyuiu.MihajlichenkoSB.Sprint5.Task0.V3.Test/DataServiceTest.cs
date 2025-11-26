@@ -1,25 +1,27 @@
-﻿using Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib;
+
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Test
 {
     [TestClass]
-    public sealed class DataServiceTest
+    public class DataServiceTest
     {
         [TestMethod]
-
-        public override bool Equals(object obj)
+        public void CheckSaveToFile()
         {
-            return base.Equals(obj);
-        }
+            DataService ds = new DataService();
+            int x = 3;
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+            string path = ds.SaveToFileTextData(x);
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+            Assert.IsTrue(File.Exists(path));
 
+            string fileContent = File.ReadAllText(path);
+            string expectedValue = "-1.000"; 
+
+            Assert.AreEqual(expectedValue, fileContent);
+
+        }
     }
 }
