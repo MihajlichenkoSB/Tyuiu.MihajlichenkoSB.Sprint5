@@ -21,12 +21,13 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task3.V8
 
             DataService ds = new DataService();
 
+
             double x = ds.LoadFromDataFile(inputPath);
-            double y = ds.Calculate(x);
+
 
             Console.WriteLine("РЕЗУЛЬТАТ:");
             Console.WriteLine("X = " + x);
-            Console.WriteLine("Y = " + y);
+
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("Готово!");
