@@ -14,6 +14,7 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task1.V26
             DataService ds = new DataService();
 
             Console.Title = "Спринт #5 | Михайличенко С.Б. | Вариант 26";
+
             Console.WriteLine("****************************************************************************");
             Console.WriteLine("* Спринт #5                                                                *");
             Console.WriteLine("* Тема: Работа с файлами                                                   *");
@@ -21,26 +22,34 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task1.V26
             Console.WriteLine("* Вариант #26                                                              *");
             Console.WriteLine("* Выполнил: Михайличенко Сергей Борисович                                  *");
             Console.WriteLine("****************************************************************************");
-
-            Console.WriteLine("ТАБЛИЦА ЗНАЧЕНИЙ ФУНКЦИИ");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("   x      f(x)");
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("* УСЛОВИЕ:                                                                 *");
+            Console.WriteLine("* Табулировать функцию                                                     *");
+            Console.WriteLine("*   F(x) = (2x + 6) / (cos(x) + x) – 3                                      *");
+            Console.WriteLine("* на промежутке [-5, 5] с шагом 1.                                         *");
+            Console.WriteLine("* Проверить деление на ноль. При делении — вернуть 0.                     *");
+            Console.WriteLine("* Результат сохранить в файл и вывести в таблицу.                          *");
+            Console.WriteLine("* Округление до двух знаков.                                               *");
+            Console.WriteLine("****************************************************************************");
 
             string path = ds.SaveToFileTextData(startValue, stopValue);
 
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines)
+            string[] yValues = File.ReadAllLines(path);
+
+            Console.WriteLine("\nТАБЛИЦА ЗНАЧЕНИЙ ФУНКЦИИ");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("   x        f(x)");
+            Console.WriteLine("---------------------------------");
+
+            int x = startValue;
+            foreach (string y in yValues)
             {
-                string[] parts = line.Split(' ');
-                Console.WriteLine($"{parts[0],4} {parts[1],8}");
+                Console.WriteLine($"{x,4} {y,10}");
+                x++;
             }
 
-            Console.WriteLine("****************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ:                                                               *");
-            Console.WriteLine("****************************************************************************");
+            Console.WriteLine("---------------------------------\n");
+            Console.WriteLine($"Файл успешно сохранён:\n{path}");
 
-            Console.WriteLine($"Файл сохранён: {path}");
             Console.ReadKey();
         }
     }

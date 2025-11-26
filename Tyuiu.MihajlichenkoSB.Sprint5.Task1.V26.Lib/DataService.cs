@@ -23,7 +23,9 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task1.V26.Lib
                         y = (2 * x + 6) / denominator - 3;
 
                     y = Math.Round(y, 2);
-                    writer.WriteLine($"{x} {y}");
+
+                    // ✔️ ПИШЕМ ТОЛЬКО y — без x
+                    writer.WriteLine($"{y}");
                 }
             }
 
