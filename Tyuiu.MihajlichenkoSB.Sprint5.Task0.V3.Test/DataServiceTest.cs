@@ -10,12 +10,13 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Test
         [TestMethod]
         public void CheckSaveToFile()
         {
-            string path = @"C:\Users\PC\Desktop\ТИУ\repos\Tyuiu.MihajlichenkoSB.Sprint5\Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3\bin\Debug\OutPutFileTask0.txt";
+            DataService ds = new DataService();
+
+            string path = ds.SaveToFileTextData(3);
 
             FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            bool wait = true;
-            Assert.IsTrue(fileExists);
+
+            Assert.IsTrue(fileInfo.Exists);
         }
     }
 }
