@@ -9,20 +9,17 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib
     {
         public string SaveToFileTextData(int x)
         {
+            string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask0.txt";
+
             double y = -0.25 * (Math.Pow(x, 3) - 3 * Math.Pow(x, 2) + 4);
 
             y = Math.Round(y, 3, MidpointRounding.AwayFromZero);
 
             string resultStr = y.ToString(CultureInfo.InvariantCulture);
 
-            string fileName = "OutPutFileTask0.txt";
+            File.WriteAllText(path, Convert.ToString(y));
 
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-
-            File.WriteAllText(filePath, resultStr);
-
-            return filePath;
+            return path;
         }
-
     }
 }
