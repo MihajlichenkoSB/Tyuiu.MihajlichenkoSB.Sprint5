@@ -18,5 +18,6 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task3.V8.Test
                 double value = br.ReadDouble();
                 Assert.AreEqual((Math.Round((Math.Pow(3, 2) + 1) / (3 * 3 + 4), 3)), value);
             }
+        }
     }
 }
