@@ -15,8 +15,6 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task0.V3.Lib
 
             y = Math.Round(y, 3, MidpointRounding.AwayFromZero);
 
-            string resultStr = y.ToString(CultureInfo.InvariantCulture);
-
             File.WriteAllText(path, Convert.ToString(y));
 
             return path;
