@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task4.V6.Lib
 {
-    public class DataService : ISprint5Tassk4V6
+    public class DataService : ISprint5Task4V6
     {
         public double LoadFromDataFile(string path)
         {
