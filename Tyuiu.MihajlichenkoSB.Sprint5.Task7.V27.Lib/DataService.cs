@@ -10,7 +10,7 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27.Lib
         {
             string text = File.ReadAllText(path);
 
-            string cleaned = Regex.Replace(text, @" {2,}", " ");
+            string cleaned = Regex.Replace(text, @"\s+", ""); 
 
             string safeDir = Path.GetTempPath();
 
