@@ -1,4 +1,5 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.Globalization;
+using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
 {
@@ -6,24 +7,25 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string[] lines = File.ReadAllLines(path);
+            double positiveSum = 0;
+            double negativeSum = 0;
 
-            double sumPositive = 0;
-            double sumNegative = 0;
-
-            foreach (string line in lines)
+            foreach (string line in File.ReadAllLines(path))
             {
-                if (double.TryParse(line, out double value))
+                if (double.TryParse(line.Replace(",", "."),
+                                    NumberStyles.Any,
+                                    CultureInfo.InvariantCulture,
+                                    out double value))
                 {
-                    value = Math.Round(value, 3);
-
                     if (value > 0)
-                        sumPositive += value;
+                        positiveSum += value;
                     else if (value < 0)
-                        sumNegative += value;
+                        negativeSum += value;
                 }
             }
-            return sumPositive - Math.Abs(sumNegative);
+
+            double result = positiveSum - Math.Abs(negativeSum);
+            return Math.Round(result, 3);
         }
     }
 }

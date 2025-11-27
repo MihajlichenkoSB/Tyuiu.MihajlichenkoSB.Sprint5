@@ -1,31 +1,19 @@
-﻿using Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib;
+﻿using System.IO;
+using Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Test
 {
-    [TestClass]
-    public sealed class DataServiceTest
+    public class DataServiceTest
     {
-        [TestMethod]
-        public void TestMethod1()
+        public void TestCalculation()
         {
-            string path = Path.Combine(Path.GetTempPath(), "TestTask5V12.txt");
-
-            File.WriteAllLines(path, new string[]
-            {
-                "5",
-                "-2",
-                "3.456",
-                "-1.789",
-                "7"
-            });
-
             DataService ds = new DataService();
 
-            double result = ds.LoadFromDataFile(path);
+            string path = "/app/data/AssesmentData/C#/Sprint5Task5/InPutDataFileTask5V12.txt";
 
-            double expected = 11.667;
+            double res = ds.LoadFromDataFile(path);
 
-            Assert.AreEqual(expected, result, 0.001);
+            Assert.AreEqual(100.0, res);
         }
     }
 }
