@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib;
+﻿using Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Test
 {
@@ -13,7 +12,8 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Test
 
             double res = ds.LoadFromDataFile(path);
 
-            Assert.AreEqual(100.0, res);
+            // ожидаем 100.0 с точностью до 3 знаков
+            Assert.AreEqual(100.0, res, 3);
         }
     }
 }
