@@ -7,26 +7,20 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            double positiveSum = 0;
-            double negativeSum = 0;
+            int positiveSum = 0;
+            int negativeSum = 0;
 
             foreach (string line in File.ReadAllLines(path))
             {
-                string[] parts = line.Split(new char[] { ' ', '\t', ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string part in parts)
+                // Учитываем только целые числа!
+                if (int.TryParse(line, out int value))
                 {
-                    if (double.TryParse(part.Replace(",", "."),
-                                        NumberStyles.Any,
-                                        CultureInfo.InvariantCulture,
-                                        out double value))
-                    {
-                        if (value > 0)
-                            positiveSum += value;
-                        else if (value < 0)
-                            negativeSum += value;
-                    }
+                    if (value > 0)
+                        positiveSum += value;
+                    else if (value < 0)
+                        negativeSum += value;
                 }
+                // Все дробные строки пропускаем
             }
 
             double result = positiveSum - Math.Abs(negativeSum);
