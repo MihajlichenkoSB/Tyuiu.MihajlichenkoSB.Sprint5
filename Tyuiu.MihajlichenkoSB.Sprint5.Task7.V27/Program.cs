@@ -1,4 +1,6 @@
-﻿using Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27.Lib;
+﻿using System;
+using System.IO;
+using Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27.Lib;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27
 {
@@ -6,7 +8,6 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
             Console.Title = "Спринт #5 | Задание 7 | Вариант 27 | Михайличенко С.Б.";
 
             Console.WriteLine("************************************************************");
@@ -18,7 +19,10 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27
             Console.WriteLine("************************************************************");
             Console.WriteLine();
 
-            string inputPath = Path.Combine(@"C:\DataSprint5\", "InPutDataFileTask7V27.txt");
+            string inputPath = Path.Combine(AppContext.BaseDirectory, "InPutDataFileTask7V27.txt");
+
+            if (!File.Exists(inputPath))
+                File.WriteAllText(inputPath, "Привет   мир    !!!");
 
             Console.WriteLine("Входной файл: " + inputPath);
 

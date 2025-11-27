@@ -12,11 +12,9 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task7.V27.Lib
 
             string cleaned = Regex.Replace(text, @" {2,}", " ");
 
-            string outputPath = Path.Combine
-            (
-                Path.GetDirectoryName(path)!,
-                "OutPutDataFileTask7V27.txt"
-            );
+            string safeDir = Path.GetTempPath();
+
+            string outputPath = Path.Combine(safeDir, "OutPutDataFileTask7V27.txt");
 
             File.WriteAllText(outputPath, cleaned);
 
