@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.IO;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
@@ -18,10 +17,14 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
                                     CultureInfo.InvariantCulture,
                                     out double value))
                 {
-                    if (value > 0)
-                        positiveSum += value;
-                    else if (value < 0)
-                        negativeSum += value;
+                    // Учитываем ТОЛЬКО целые числа
+                    if (value % 1 == 0)
+                    {
+                        if (value > 0)
+                            positiveSum += value;
+                        else if (value < 0)
+                            negativeSum += value;
+                    }
                 }
             }
 
