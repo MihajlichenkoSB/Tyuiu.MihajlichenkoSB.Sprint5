@@ -12,13 +12,14 @@ namespace Tyuiu.MihajlichenkoSB.Sprint5.Task5.V12.Lib
 
             foreach (string line in File.ReadAllLines(path))
             {
-                if (double.TryParse(line.Replace(",", "."),
-                                    NumberStyles.Any,
-                                    CultureInfo.InvariantCulture,
-                                    out double value))
+                string[] parts = line.Split(new char[] { ' ', '\t', ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string part in parts)
                 {
-                    // Учитываем ТОЛЬКО целые числа
-                    if (value % 1 == 0)
+                    if (double.TryParse(part.Replace(",", "."),
+                                        NumberStyles.Any,
+                                        CultureInfo.InvariantCulture,
+                                        out double value))
                     {
                         if (value > 0)
                             positiveSum += value;
